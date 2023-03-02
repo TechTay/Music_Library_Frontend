@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import MusicTable from "./Components/MusicTable/MusicTable"
 import NavBar from "./Components/NavBar/NavBar"
 import SearchBar from "./Components/SearchBar/SearchBar"
 
 function App() {
+  const [addSong,addSongSet] = useState([
+    { title: "I Believe I Can Fly", artist: "R. Kelly", album: "R.", release_date: "1998-11-10", genre: "R&B" },
+  ])
 
-  const [songs, setSongs] = useState([]);
-
-  useEffect(() =>{
-    getAllSongs();
-  }, []);
-
-  async function getAllSongs(){
-    const response = await axios.get('http://127.0.0.1:8000/api/songs/')
-    console.log(response.data)
-    setSongs(response.data)
+  function addNewSong(newSong) {
+    let newSongs = [newSong, ...addSong]
+    addSongSet(newSongs)
   }
+
+}
 
   return (
     <div>
-
-      <button onClick={() => getAllSongs()}>Get All Songs</button>
+      <NavBar/>
+      <MusicTable addNewSong={addNewSong}/>
+      <SearchBar/>
+      
     </div>
   );
-}
 
+  
 export default App;
