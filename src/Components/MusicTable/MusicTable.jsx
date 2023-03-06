@@ -1,30 +1,15 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import Song from '../Song/Song';
 
 
-const MusicTable = () => {
 
-function App() {
-
-    const [songs, setSongs] = useState([]);
-  
-    useEffect(() =>{
-      getAllSongs();
-    }, []);
-  
-    async function getAllSongs(){
-      const response = await axios.get('http://127.0.0.1:8000/api/songs/')
-      console.log(response.data)
-      setSongs(response.data)
-    } 
-
+const MusicTable = (props) => {
     return (
-        <div>
-            <button onClick={() => getAllSongs()}>Get All Songs</button>
-        </div>
-    )
+      <div>
+      {props.songs.map( song => <Song song={song}/> )}
+  </div>)
+    
 }
-}
+
 
 
 export default MusicTable
