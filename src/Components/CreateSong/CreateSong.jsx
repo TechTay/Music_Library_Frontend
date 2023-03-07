@@ -28,23 +28,16 @@ const CreateSong = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='form-grid'>
-            <div>
-              <label>Title</label>
-            </div>
-            <div>
-              <label>Album</label>
-            </div>
-            <div>
-              <label>Artist</label>
-            </div>
-            <div>
-              <label>Release Date</label>
-            </div>
-            <div>
-              <label>Genre</label>
-            </div>
-            
+        <form onSubmit={handleSubmit} className='form-Song'>
+          <div className='create-Song'>
+            <h6 style={{'margin-left': '0.5em', 'margin-bottom': '0.4em'}} >Add Music</h6>
+            <input type= 'text' className='form-control' value={title} onChange={(event) => setTitle(event.target.value)}/>
+            <input type= 'text' className='form-control' value={album} onChange={(event) => setAlbum(event.target.value)}/>
+            <input type= 'text' className='form-control' value={artist} onChange={(event) => setArtist(event.target.value)}/>
+            <input type= 'date' className='form-control' value={release_date} onChange={(event) => setReleaseDate(event.target.value)}/>
+            <input type= 'text' className='form-control' value={genre} onChange={(event) => setGenre(event.target.value)}/>
+          </div>
+          <button type='submit'className='btn btn-primary' style={{'margin-top': '1em'}}>Add Song</button>
         </form>
     )
 }

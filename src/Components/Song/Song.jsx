@@ -13,21 +13,13 @@ const Song = (props) => {
                     <th>Genre</th>
                 </tr>
             </thead>
-    <table className='table'>
-        <h3>{props.song.title}</h3>
-        <p>
-            {props.song.album}
-        </p>
-        <p>
-            {props.song.artist}
-        </p>
-        <p>
-            {props.song.release_date}
-        </p>
-        <p>
-            {props.song.genre}
-        </p>
-    </table>
+     <tbody className='table'>
+        <td>{props.song.title}</td>
+        <td>{props.song.album}</td>
+        <td>{props.song.artist}</td>
+        <td>{props.song.release_date}</td>
+        <td>{props.song.genre}</td>
+     </tbody>
     </table>
     )
 }

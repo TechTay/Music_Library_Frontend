@@ -4,7 +4,7 @@ import NavBar from "./Components/NavBar/NavBar"
 import CreateSong from "./Components/CreateSong/CreateSong"
 import axios from 'axios';
 import './App.css'
-
+import SearchBar from "./Components/SearchBar/SearchBar"
 
 function App() {
 
@@ -32,15 +32,15 @@ function App() {
       <div className='row'>
         <div className='col-md-6'>
         <NavBar/>
-      {/* <button onClick={() => getAllSongs()}>Get All Songs</button> */}
         </div>
         <div className='col-md-6'>
         <div className='border-box'>
+        <SearchBar/>
         <MusicTable songs={songs}/>
       
         </div>
         </div>
-        <div className='border-box'>
+        <div className=''>
         <CreateSong addNewSong={addNewSong}/>
         </div>
       </div>
