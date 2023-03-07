@@ -16,16 +16,24 @@ function App() {
 
   async function getAllSongs(){
     const response = await axios.get('http://127.0.0.1:8000/api/songs/')
-    console.log(response.data)
     setSongs(response.data)
   }
 
-    function addNewSong(newSong){
-      let tempSongs = [newSong, ...songs]
-      setSongs(tempSongs)
+    async function addNewSong(newSong){
+      let response = await axios.post('http://127.0.0.1:8000/api/songs/', newSong);
+      if(response.status === 201) {
+        await getAllSongs();
+      }
   } 
 
-
+  function filterMusic() {
+    let filterSongs = songs.filter(function(el){
+      if (el.title === setSongs){
+        return true
+      }
+    })
+    return filterSongs
+  }
 
   return (
     <div className='container-fluid'>
@@ -35,7 +43,7 @@ function App() {
         </div>
         <div className='col-md-6'>
         <div className='border-box'>
-        <SearchBar/>
+        <SearchBar filterMusic={filterMusic}/>
         <MusicTable songs={songs}/>
       
         </div>

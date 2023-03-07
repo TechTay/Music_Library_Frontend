@@ -10,13 +10,13 @@ const SearchBar = (props) => {
         let newSearch = {
             search: search
         };
-
+    }
     return (
         <form onSubmit={handleSubmit} className='search'>
-    <input type='text' className='SearchBar' value={newSearch} onChange={(event) => setSearch(event.target.value)}/>
+    <input type='text' className='SearchBar' value={search} onChange={(event) => setSearch(event.target.value)}/>
     </form>
         )
 
-    }}
+    }
 
     export default SearchBar
