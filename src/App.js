@@ -26,13 +26,20 @@ function App() {
       }
   } 
 
-  function filterMusic() {
-    let filterSongs = songs.filter(function(el){
-      if (el.title === setSongs){
+  function filterMusic(newSong) {
+    let userInput = songs.filter(function(el){
+      if(el.title.includes(newSong) || 
+      el.album.includes(newSong) || 
+      el.artist.includes(newSong) || 
+      el.release_date.includes(newSong) || 
+      el.genre.includes(newSong) ){
         return true
+      } else {
+        return false
       }
+      
     })
-    return filterSongs
+    setSongs(userInput)
   }
 
   return (
@@ -43,9 +50,8 @@ function App() {
         </div>
         <div className='col-md-6'>
         <div className='border-box'>
-        <SearchBar filterMusic={filterMusic}/>
+        <SearchBar filterMusic={filterMusic}/> 
         <MusicTable songs={songs}/>
-      
         </div>
         </div>
         <div className=''>
