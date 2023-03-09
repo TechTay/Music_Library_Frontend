@@ -30,7 +30,7 @@ const CreateSong = (props) => {
     return (
         <form onSubmit={handleSubmit} className='form-Song'>
           <div className='create-Song'>
-            <h6 style={{'marginLeft': '0.5em', 'marginBottom': '0.4em'}} >Add Music</h6>
+            <h5 style={{'marginLeft': '0.5em', 'marginBottom': '0.4em', 'color': 'green'}} >Add New Music</h5>
             <input type= 'text' className='form-control' value={title} onChange={(event) => setTitle(event.target.value)}/>
             <input type= 'text' className='form-control' value={album} onChange={(event) => setAlbum(event.target.value)}/>
             <input type= 'text' className='form-control' value={artist} onChange={(event) => setArtist(event.target.value)}/>

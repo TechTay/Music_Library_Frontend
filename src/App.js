@@ -43,7 +43,7 @@ function App() {
   }
 
   return (
-    <div className='container-fluid'>
+    <div className='body'>
       <div className='row'>
         <div className='col-md-6'>
         <NavBar/>
